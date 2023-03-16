@@ -8,6 +8,24 @@ public class SvgScene {
     public void add(Shape polygon){
         shapes.add(polygon);
     }
+
+    private static SvgScene instance = null;
+
+
+
+    public static SvgScene getInstance(){
+        if(instance == null){
+            instance = new SvgScene();
+        }
+        return instance;
+    }
+
+    List<String> defs = new ArrayList<>();
+
+    public void addDef(String def){
+        defs.add(def);
+    }
+
     public void saveHtml(String path){
         try {
             FileWriter fw = new FileWriter(path);
